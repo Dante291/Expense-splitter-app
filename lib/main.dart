@@ -28,16 +28,21 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Flutter App'),
         ),
         body: const Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             SizedBox(
               width: double.infinity,
               child: Card(
                 color: Colors.cyanAccent,
                 elevation: 5,
-                child: Text('CHART!'),
+                child: Text(
+                  'CHART!',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
             Card(
+              color: Color.fromARGB(255, 129, 87, 201),
               child: Text('LIST OF TX'),
             )
           ],
