@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'transaction.dart';
 
 class TransactionList extends StatefulWidget {
@@ -27,7 +28,7 @@ class _TransactionListState extends State<TransactionList> {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: const Color.fromARGB(255, 138, 97, 250),
+                  color: Color.fromARGB(255, 129, 87, 201),
                   width: 2,
                 )),
                 padding: const EdgeInsets.all(10),
@@ -36,10 +37,27 @@ class _TransactionListState extends State<TransactionList> {
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.greenAccent),
+                      color: Color.fromARGB(255, 246, 100, 222)),
                 ),
               ),
-              Column()
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    tx.title,
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 115, 55, 246)),
+                  ),
+                  Text(
+                    DateFormat.yMMMd().format(tx.date),
+                    style: const TextStyle(
+                      color: Colors.grey,
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         );
