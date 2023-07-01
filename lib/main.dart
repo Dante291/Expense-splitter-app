@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'Transaction_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +30,6 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Flutter App'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             // ignore: sized_box_for_whitespace
             Container(
@@ -44,39 +42,6 @@ class MyHomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 )),
-            Card(
-              elevation: 5,
-              color: const Color.fromARGB(255, 129, 87, 201),
-              child: Container(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    TextField(
-                      decoration: const InputDecoration(
-                        labelText: 'TITLE',
-                      ),
-                      controller: titlecontroller,
-                    ),
-                    TextField(
-                      decoration: const InputDecoration(labelText: 'AMOUNT'),
-                      controller: amountcontroller,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        print(titlecontroller.text);
-                      },
-                      child: const Text(
-                        "Add Transaction",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 246, 100, 222)),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            TransactionList()
           ],
         ));
   }
