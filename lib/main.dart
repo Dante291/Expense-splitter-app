@@ -1,3 +1,4 @@
+import 'package:expense_splitter/user_tx.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -42,6 +43,7 @@ class MyHomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 )),
+            UserTransactions()
           ],
         ));
   }

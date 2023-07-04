@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
 class NewTransactions extends StatelessWidget {
+  final Function addTx;
   final titlecontroller = TextEditingController();
   final amountcontroller = TextEditingController();
+
+  // ignore: use_key_in_widget_constructors
+  NewTransactions(this.addTx);
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +28,18 @@ class NewTransactions extends StatelessWidget {
             TextField(
               decoration: const InputDecoration(labelText: 'AMOUNT'),
               controller: amountcontroller,
+              style: const TextStyle(fontStyle: FontStyle.italic),
             ),
             TextButton(
               onPressed: () {
-                print(titlecontroller.text);
+                addTx(
+                  titlecontroller.text,
+                  double.parse(amountcontroller.text),
+                );
               },
               child: const Text(
                 "Add Transaction",
-                style: TextStyle(color: Color.fromARGB(255, 246, 100, 222)),
+                style: TextStyle(color: Color.fromARGB(255, 245, 55, 55)),
               ),
             )
           ],
