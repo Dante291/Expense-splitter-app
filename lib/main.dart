@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter ',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -43,7 +44,7 @@ class MyHomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 )),
-            UserTransactions()
+            const UserTransactions()
           ],
         ));
   }
