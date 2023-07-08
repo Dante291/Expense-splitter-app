@@ -27,7 +27,7 @@ class NewTransactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      color: Color.fromARGB(255, 161, 122, 228),
+      color: const Color.fromARGB(255, 192, 157, 251),
       child: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -35,12 +35,19 @@ class NewTransactions extends StatelessWidget {
           children: [
             TextField(
                 decoration: const InputDecoration(
-                  labelText: 'TITLE',
-                ),
+                    labelText: 'TITLE',
+                    labelStyle:
+                        TextStyle(color: Color.fromARGB(255, 249, 208, 243))),
                 controller: titlecontroller,
+                onTapOutside: ((event) {
+                  FocusScope.of(context).unfocus();
+                }),
                 onSubmitted: (_) => sumbitdata()),
             TextField(
-              decoration: const InputDecoration(labelText: 'AMOUNT'),
+              decoration: const InputDecoration(
+                  labelText: 'AMOUNT',
+                  labelStyle:
+                      TextStyle(color: Color.fromARGB(255, 249, 208, 243))),
               controller: amountcontroller,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => sumbitdata(),
