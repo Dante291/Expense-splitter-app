@@ -9,37 +9,48 @@ class NewTransactions extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
   NewTransactions(this.addTx);
 
+  void sumbitdata() {
+    final enteredtitle = titlecontroller.text;
+    final enteredamount = double.parse(amountcontroller.text);
+
+    if (enteredtitle.isEmpty || enteredamount <= 0) {
+      return;
+    }
+
+    addTx(
+      enteredtitle,
+      enteredamount,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      color: const Color.fromARGB(255, 129, 87, 201),
+      color: Color.fromARGB(255, 161, 122, 228),
       child: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
-              decoration: const InputDecoration(
-                labelText: 'TITLE',
-              ),
-              controller: titlecontroller,
-            ),
+                decoration: const InputDecoration(
+                  labelText: 'TITLE',
+                ),
+                controller: titlecontroller,
+                onSubmitted: (_) => sumbitdata()),
             TextField(
               decoration: const InputDecoration(labelText: 'AMOUNT'),
               controller: amountcontroller,
-              style: const TextStyle(fontStyle: FontStyle.italic),
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => sumbitdata(),
+              style: const TextStyle(fontStyle: FontStyle.normal),
             ),
-            TextButton(
-              onPressed: () {
-                addTx(
-                  titlecontroller.text,
-                  double.parse(amountcontroller.text),
-                );
-              },
+            FilledButton.tonal(
+              onPressed: sumbitdata,
               child: const Text(
                 "Add Transaction",
-                style: TextStyle(color: Color.fromARGB(255, 245, 55, 55)),
+                style: TextStyle(color: Color.fromARGB(255, 202, 92, 151)),
               ),
             )
           ],

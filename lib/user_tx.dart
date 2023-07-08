@@ -7,10 +7,10 @@ class UserTransactions extends StatefulWidget {
   const UserTransactions({super.key});
 
   @override
-  State<UserTransactions> createState() => _UserTransactionsState();
+  State<UserTransactions> createState() => UserTransactionsState();
 }
 
-class _UserTransactionsState extends State<UserTransactions> {
+class UserTransactionsState extends State<UserTransactions> {
   final List<Transaction> userTransactions = [
     Transaction(
         id: 't1', title: 'NEW SHOES', amount: 82.90, date: DateTime.now()),

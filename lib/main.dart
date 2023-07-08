@@ -29,23 +29,25 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Flutter App'),
+          title: const Text('Expense Splitter'),
         ),
-        body: Column(
-          children: <Widget>[
-            // ignore: sized_box_for_whitespace
-            Container(
-                width: double.infinity,
-                child: const Card(
-                  color: Color.fromARGB(255, 247, 52, 121),
-                  elevation: 5,
-                  child: Text(
-                    'CHART!',
-                    textAlign: TextAlign.center,
-                  ),
-                )),
-            const UserTransactions()
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              // ignore: sized_box_for_whitespace
+              Container(
+                  width: double.infinity,
+                  child: const Card(
+                    color: Color.fromARGB(255, 236, 103, 149),
+                    elevation: 10,
+                    child: Text(
+                      'CHART!',
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+              const UserTransactions()
+            ],
+          ),
         ));
   }
 }
