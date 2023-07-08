@@ -35,6 +35,7 @@ class NewTransactions extends StatelessWidget {
           children: [
             TextField(
                 decoration: const InputDecoration(
+                    contentPadding: EdgeInsets.all(2),
                     labelText: 'TITLE',
                     labelStyle:
                         TextStyle(color: Color.fromARGB(255, 249, 208, 243))),
@@ -45,6 +46,7 @@ class NewTransactions extends StatelessWidget {
                 onSubmitted: (_) => sumbitdata()),
             TextField(
               decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(2),
                   labelText: 'AMOUNT',
                   labelStyle:
                       TextStyle(color: Color.fromARGB(255, 249, 208, 243))),
@@ -52,6 +54,9 @@ class NewTransactions extends StatelessWidget {
               keyboardType: TextInputType.number,
               onSubmitted: (_) => sumbitdata(),
               style: const TextStyle(fontStyle: FontStyle.normal),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             FilledButton.tonal(
               onPressed: sumbitdata,
