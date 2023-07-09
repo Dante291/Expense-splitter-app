@@ -60,16 +60,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Expense Splitter'),
+        backgroundColor: Colors.red,
+        title: const Text(
+          'Expense Splitter',
+        ),
+        titleTextStyle: const TextStyle(
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontWeight: FontWeight.w400,
+            fontSize: 25),
         actions: [
           IconButton(
               onPressed: () {
                 txSheet(context);
               },
               icon: const Icon(
-                Icons.add_circle_outline,
+                Icons.playlist_add_rounded,
                 size: 35,
-                color: Color.fromARGB(255, 168, 97, 181),
+                color: Color.fromARGB(255, 255, 255, 255),
               ))
         ],
       ),
@@ -80,12 +87,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
                 width: double.infinity,
                 child: const Card(
-                  color: Color.fromARGB(255, 236, 103, 149),
+                  color: Colors.red,
+                  shadowColor: Colors.red,
                   elevation: 10,
-                  child: Text(
-                    'CHART!',
-                    textAlign: TextAlign.center,
-                  ),
+                  child: Text('CHART!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.w400,
+                      )),
                 )),
             TransactionList(userTransactions),
           ],
@@ -98,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           txSheet(context);
         },
         child: const Icon(
-          Icons.format_list_bulleted_add,
+          Icons.add,
           size: 35,
           color: Color.fromARGB(255, 168, 97, 181),
         ),

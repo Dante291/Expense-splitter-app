@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 // ignore: use_key_in_widget_constructors
-class NewTransactions extends StatelessWidget {
+class NewTransactions extends StatefulWidget {
   final Function addTx;
-  final titlecontroller = TextEditingController();
-  final amountcontroller = TextEditingController();
 
-  // ignore: use_key_in_widget_constructors
-  NewTransactions(this.addTx);
+  const NewTransactions(this.addTx);
+
+  @override
+  State<NewTransactions> createState() => _NewTransactionsState();
+}
+
+class _NewTransactionsState extends State<NewTransactions> {
+  final titlecontroller = TextEditingController();
+
+  final amountcontroller = TextEditingController();
 
   void sumbitdata() {
     final enteredtitle = titlecontroller.text;
@@ -17,10 +23,12 @@ class NewTransactions extends StatelessWidget {
       return;
     }
 
-    addTx(
+    widget.addTx(
       enteredtitle,
       enteredamount,
     );
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -55,8 +63,13 @@ class NewTransactions extends StatelessWidget {
                       color: Color.fromARGB(255, 245, 92, 222))),
               controller: amountcontroller,
               keyboardType: TextInputType.number,
+              onTapOutside: ((event) {
+                FocusScope.of(context).unfocus();
+              }),
               onSubmitted: (_) => sumbitdata(),
-              style: const TextStyle(fontStyle: FontStyle.normal),
+              style: const TextStyle(
+                fontStyle: FontStyle.normal,
+              ),
             ),
             const SizedBox(
               height: 10,
