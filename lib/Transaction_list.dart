@@ -13,53 +13,72 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: sized_box_for_whitespace
     return Container(
-      height: 615,
-      child: ListView.builder(
-        itemBuilder: (ctx, index) {
-          return Card(
-            child: Row(
-              children: [
-                Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                    color: const Color.fromARGB(255, 129, 87, 201),
-                    width: 2,
-                  )),
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    '₹${transactions[index].amount.toStringAsFixed(2)}',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color.fromARGB(255, 246, 100, 222)),
-                  ),
+      height: 415,
+      child: transactions.isEmpty
+          ? Column(
+              children: <Widget>[
+                const Text(
+                  'No transactions added yet!',
+                  style: TextStyle(fontSize: 23),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      transactions[index].title,
-                      style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 115, 55, 246)),
-                    ),
-                    Text(
-                      DateFormat.yMMMd().format(transactions[index].date),
-                      style: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                    )
-                  ],
-                )
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                    height: 300,
+                    child: Image.asset(
+                      'assets/images/minion.png',
+                      fit: BoxFit.cover,
+                    ))
               ],
+            )
+          : ListView.builder(
+              itemBuilder: (ctx, index) {
+                return Card(
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 15),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                          width: 2,
+                        )),
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          '₹${transactions[index].amount.toStringAsFixed(2)}',
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColorDark,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            transactions[index].title,
+                            style: const TextStyle(
+                              // color: Theme.of(context).primaryColorLight,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            DateFormat.yMMMd().format(transactions[index].date),
+                            style: const TextStyle(
+                              color: Color.fromARGB(255, 131, 130, 130),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+              itemCount: transactions.length,
             ),
-          );
-        },
-        itemCount: transactions.length,
-      ),
     );
   }
 }

@@ -14,11 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter ',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: 'Expense Splitter',
+      theme: ThemeData(primarySwatch: Colors.green),
       home: MyHomePage(),
     );
   }
@@ -32,9 +29,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> userTransactions = [
-    Transaction(
-        id: 't1', title: 'NEW SHOES', amount: 82.90, date: DateTime.now()),
-    Transaction(id: 't2', title: 'STUDIES', amount: 10.00, date: DateTime.now())
+    // Transaction(
+    //     id: 't1', title: 'NEW SHOES', amount: 82.90, date: DateTime.now()),
+    // Transaction(id: 't2', title: 'STUDIES', amount: 10.00, date: DateTime.now())
   ];
   void addNewTransactions(String txTitle, double txAmount) {
     final newTx = Transaction(
@@ -60,14 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.green,
         title: const Text(
           'Expense Splitter',
         ),
-        titleTextStyle: const TextStyle(
-            color: Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.w400,
-            fontSize: 25),
+        titleTextStyle:
+            const TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
         actions: [
           IconButton(
               onPressed: () {
@@ -76,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(
                 Icons.playlist_add_rounded,
                 size: 35,
-                color: Color.fromARGB(255, 255, 255, 255),
               ))
         ],
       ),
@@ -87,8 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
                 width: double.infinity,
                 child: const Card(
-                  color: Colors.red,
-                  shadowColor: Colors.red,
+                  color: Colors.green,
+                  shadowColor: Color.fromARGB(255, 255, 78, 51),
                   elevation: 10,
                   child: Text('CHART!',
                       textAlign: TextAlign.center,
@@ -97,20 +91,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.w400,
                       )),
                 )),
+            const SizedBox(
+              height: 10,
+            ),
             TransactionList(userTransactions),
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color.fromARGB(255, 246, 240, 245),
         onPressed: () {
           txSheet(context);
         },
         child: const Icon(
           Icons.add,
           size: 35,
-          color: Color.fromARGB(255, 168, 97, 181),
         ),
       ),
     );

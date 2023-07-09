@@ -45,9 +45,8 @@ class _NewTransactionsState extends State<NewTransactions> {
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.all(5),
                   labelText: 'TITLE',
-                  labelStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 247, 89, 223)),
+                  labelStyle:
+                      TextStyle(fontWeight: FontWeight.w500, color: Colors.red),
                 ),
                 controller: titlecontroller,
                 onTapOutside: ((event) {
@@ -59,8 +58,7 @@ class _NewTransactionsState extends State<NewTransactions> {
                   contentPadding: EdgeInsets.all(5),
                   labelText: 'AMOUNT',
                   labelStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 245, 92, 222))),
+                      fontWeight: FontWeight.w500, color: Colors.red)),
               controller: amountcontroller,
               keyboardType: TextInputType.number,
               onTapOutside: ((event) {
@@ -78,7 +76,7 @@ class _NewTransactionsState extends State<NewTransactions> {
               onPressed: sumbitdata,
               child: const Text(
                 "Add Transaction",
-                style: TextStyle(color: Color.fromARGB(255, 202, 92, 151)),
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               ),
             )
           ],
