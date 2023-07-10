@@ -1,4 +1,5 @@
-import 'package:expense_splitter/new_tx.dart';
+import 'chart.dart';
+import 'new_tx.dart';
 import 'package:flutter/material.dart';
 
 import 'Transaction_list.dart';
@@ -33,6 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
     //     id: 't1', title: 'NEW SHOES', amount: 82.90, date: DateTime.now()),
     // Transaction(id: 't2', title: 'STUDIES', amount: 10.00, date: DateTime.now())
   ];
+
+  List<Transaction> get recentTx {
+    return userTransactions.where((tx) {
+      return tx.date.isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    }).toList();
+  }
+
   void addNewTransactions(String txTitle, double txAmount) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
@@ -78,19 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: <Widget>[
             // ignore: sized_box_for_whitespace
-            Container(
-                width: double.infinity,
-                child: const Card(
-                  color: Colors.green,
-                  shadowColor: Color.fromARGB(255, 255, 78, 51),
-                  elevation: 10,
-                  child: Text('CHART!',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.w400,
-                      )),
-                )),
+            Chart(recentTx),
             const SizedBox(
               height: 10,
             ),
