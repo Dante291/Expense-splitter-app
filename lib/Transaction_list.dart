@@ -45,7 +45,7 @@ class TransactionList extends StatelessWidget {
                           color: Theme.of(context).primaryColor,
                           width: 2,
                         )),
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(8),
                         child: Text(
                           '₹${transactions[index].amount.toStringAsFixed(2)}',
                           style: TextStyle(

@@ -42,11 +42,13 @@ class _NewTransactionsState extends State<NewTransactions> {
           children: [
             TextField(
                 textAlignVertical: TextAlignVertical.top,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(5),
                   labelText: 'TITLE',
-                  labelStyle:
-                      TextStyle(fontWeight: FontWeight.w500, color: Colors.red),
+                  labelStyle: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
                 controller: titlecontroller,
                 onTapOutside: ((event) {
@@ -54,11 +56,13 @@ class _NewTransactionsState extends State<NewTransactions> {
                 }),
                 onSubmitted: (_) => sumbitdata()),
             TextField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(5),
                   labelText: 'AMOUNT',
                   labelStyle: TextStyle(
-                      fontWeight: FontWeight.w500, color: Colors.red)),
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).primaryColor,
+                  )),
               controller: amountcontroller,
               keyboardType: TextInputType.number,
               onTapOutside: ((event) {

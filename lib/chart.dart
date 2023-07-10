@@ -1,3 +1,4 @@
+import 'package:expense_splitter/chart_bar.dart';
 import './transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -19,15 +20,43 @@ class Chart extends StatelessWidget {
         }
       }
       return {
-        'day': DateFormat.E().format(weekday),
+        'day': DateFormat.E().format(weekday).substring(0, 3),
         'amount': totalSum,
       };
     });
   }
 
+  double get totalSpending {
+    return groupedTxvalues.fold(0, (sum, item) {
+      return sum + (item['amount'] as double);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(groupedTxvalues);
-    return const Placeholder();
+    return Container(
+      height: 200,
+      child: Card(
+        elevation: 6,
+        margin: const EdgeInsets.all(5),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: groupedTxvalues.map((data) {
+              return Flexible(
+                fit: FlexFit.tight,
+                child: Chartbar(
+                    data['day'].toString(),
+                    (data['amount'] as double),
+                    totalSpending == 0.0
+                        ? 0.0
+                        : (data['amount'] as double) / totalSpending),
+              );
+            }).toList(),
+          ),
+        ),
+      ),
+    );
   }
 }
