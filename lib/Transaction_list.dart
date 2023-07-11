@@ -35,45 +35,47 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 15),
+                  elevation: 5,
+                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                  child: ListTile(
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0), //or 15.0
+                      child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 2,
-                        )),
-                        padding: const EdgeInsets.all(8),
-                        child: Text(
-                          '₹${transactions[index].amount.toStringAsFixed(2)}',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColorDark,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                                color: Theme.of(context).primaryColorDark,
+                                width: 2),
+                            color: Theme.of(context).primaryColor),
+                        height: 70.0,
+                        width: 85.0,
+                        // color: Theme.of(context).primaryColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: FittedBox(
+                                child: Text(
+                                  '₹${transactions[index].amount.toString()}',
+                                  style: const TextStyle(
+                                      fontSize: 18, color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            transactions[index].title,
-                            style: const TextStyle(
-                              // color: Theme.of(context).primaryColorLight,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            DateFormat.yMMMd().format(transactions[index].date),
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 131, 130, 130),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
+                    ),
+                    title: Text(
+                      transactions[index].title,
+                      style: TextStyle(
+                        fontSize: 21,
+                      ),
+                    ),
+                    subtitle: Text(
+                      DateFormat.yMMMd().format(transactions[index].date),
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                   ),
                 );
               },
