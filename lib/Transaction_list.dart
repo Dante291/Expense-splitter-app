@@ -68,14 +68,20 @@ class TransactionList extends StatelessWidget {
                     ),
                     title: Text(
                       transactions[index].title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 21,
                       ),
                     ),
                     subtitle: Text(
                       DateFormat.yMMMd().format(transactions[index].date),
-                      style: TextStyle(fontWeight: FontWeight.w500),
+                      style: const TextStyle(fontWeight: FontWeight.w500),
                     ),
+                    trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.delete_rounded,
+                          color: Colors.red,
+                        )),
                   ),
                 );
               },

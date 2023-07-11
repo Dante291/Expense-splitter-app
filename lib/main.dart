@@ -1,7 +1,6 @@
 import 'chart.dart';
 import 'new_tx.dart';
 import 'package:flutter/material.dart';
-
 import 'Transaction_list.dart';
 import 'transaction.dart';
 
@@ -29,11 +28,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> userTransactions = [
-    // Transaction(
-    //     id: 't1', title: 'NEW SHOES', amount: 82.90, date: DateTime.now()),
-    // Transaction(id: 't2', title: 'STUDIES', amount: 10.00, date: DateTime.now())
-  ];
+  final List<Transaction> userTransactions = [];
 
   List<Transaction> get recentTx {
     return userTransactions.where((tx) {
@@ -41,12 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void addNewTransactions(String txTitle, double txAmount) {
+  void addNewTransactions(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
         amount: txAmount,
-        date: DateTime.now());
+        date: chosenDate);
 
     setState(() {
       userTransactions.add(newTx);
