@@ -1,13 +1,15 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+
 import 'package:intl/intl.dart';
-import 'transaction.dart';
+import './transaction.dart';
 
 // ignore: use_key_in_widget_constructors
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final Function deleteTransaction;
 
+  // ignore: use_key_in_widget_constructors
   const TransactionList(this.transactions, this.deleteTransaction);
 
   @override
@@ -37,7 +39,8 @@ class TransactionList extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 return Card(
                   elevation: 5,
-                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
                   child: ListTile(
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0), //or 15.0

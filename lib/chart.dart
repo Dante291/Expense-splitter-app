@@ -6,7 +6,8 @@ import 'package:intl/intl.dart';
 class Chart extends StatelessWidget {
   final List<Transaction> recentTx;
 
-  Chart(this.recentTx);
+  // ignore: use_key_in_widget_constructors
+  const Chart(this.recentTx);
 
   List<Map<String, Object>> get groupedTxvalues {
     return List.generate(7, (index) {
@@ -34,7 +35,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: Card(
         elevation: 6,

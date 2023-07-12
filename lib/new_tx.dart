@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 // ignore: use_key_in_widget_constructors
 class NewTransactions extends StatefulWidget {
   final Function addTx;
+  // ignore: use_key_in_widget_constructors
   const NewTransactions(this.addTx);
 
   @override
@@ -60,7 +61,7 @@ class _NewTransactionsState extends State<NewTransactions> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
+            SizedBox(
               height: 60,
               child: TextField(
                   textAlignVertical: TextAlignVertical.top,
@@ -96,7 +97,7 @@ class _NewTransactionsState extends State<NewTransactions> {
                 fontStyle: FontStyle.normal,
               ),
             ),
-            Container(
+            SizedBox(
               height: 60,
               child: Row(
                 children: [

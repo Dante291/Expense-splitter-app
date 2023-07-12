@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: sized_box_for_whitespace
             Chart(recentTx),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             TransactionList(userTransactions, deleteTx),
           ],

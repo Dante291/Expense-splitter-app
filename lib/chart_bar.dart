@@ -5,13 +5,14 @@ class Chartbar extends StatelessWidget {
   final double spendingAmount;
   final double spentpctoftotal;
 
+  // ignore: use_key_in_widget_constructors
   const Chartbar(this.label, this.spendingAmount, this.spentpctoftotal);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
+        SizedBox(
             height: 20,
             child: FittedBox(
                 child: Text('₹${spendingAmount.toStringAsFixed(0)}'))),
