@@ -67,34 +67,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // backgroundColor: Colors.green,
-        title: const Text(
-          'Expense Splitter',
-        ),
-        titleTextStyle:
-            const TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
-        actions: [
-          IconButton(
-              onPressed: () {
-                txSheet(context);
-              },
-              icon: const Icon(
-                Icons.playlist_add_rounded,
-                size: 35,
-              ))
-        ],
+    var appbar = AppBar(
+      // backgroundColor: Colors.green,
+      title: const Text(
+        'Expense Splitter',
       ),
+      titleTextStyle:
+          const TextStyle(fontWeight: FontWeight.w400, fontSize: 25),
+      actions: [
+        IconButton(
+            onPressed: () {
+              txSheet(context);
+            },
+            icon: const Icon(
+              Icons.playlist_add_rounded,
+              size: 35,
+            ))
+      ],
+    );
+    return Scaffold(
+      appBar: appbar,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             // ignore: sized_box_for_whitespace
-            Chart(recentTx),
-            const SizedBox(
-              height: 20,
-            ),
-            TransactionList(userTransactions, deleteTx),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top -
+                        MediaQuery.of(context).padding.bottom) *
+                    0.3,
+                child: Chart(recentTx)),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top -
+                        MediaQuery.of(context).padding.bottom) *
+                    0.7,
+                child: TransactionList(userTransactions, deleteTx)),
           ],
         ),
       ),
